@@ -1,10 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from './home';
-import { AdminComponent } from './admin';
-import { LoginComponent } from './login';
-import { AuthGuard } from './_helpers';
-import { Role } from './_models';
+import { HomeComponent } from '@app/home';
+import { AdminComponent } from '@app/admin';
+import { LoginComponent } from '@app/login';
+import { AuthGuard } from '@app/_helpers';
+import { Role } from '@app/_models';
 
 const routes: Routes = [
   {
