@@ -15,18 +15,17 @@ export class JwtInterceptor implements HttpInterceptor {
     const currentUser = this.authenticationService.currentUserValue;
     const isLoggedIn = currentUser && currentUser.token;
 
-    // Uncomment when use real data for authentication
-    // const isApiUrl = request.url.startsWith(environment.apiUrl);
-    // if (isLoggedIn && isApiUrl) {
-    //   // alert('4000 port service');
-    //   request = request.clone({
-    //     setHeaders: {
-    //       Authorization: `Bearer ${currentUser.token}`
-    //     }
-    //   });
-    // } else {
-    //   // alert('fake backend service');
-    // }
+    const isApiUrl = request.url.startsWith(environment.apiUrl);
+    if (isLoggedIn && isApiUrl) {
+
+      request = request.clone({
+        setHeaders: {
+          Authorization: `Bearer ${currentUser.token}`
+        }
+      });
+    } else {
+
+    }
 
     return next.handle(request);
   }
